@@ -36,3 +36,25 @@ def login(request):
         return Response({"status_code": "0", "message": "User not found..."})
     except Exception as e:
         return Response({"status_code": "0", "message": "{}".format(e)})
+
+@api_view(["POST"])
+def profile(request):
+    email = request.data["username"]
+    password = request.data["password"]
+
+    try:
+        user = CustomUser.objects.get(username=email)
+        if user.check_password(password):
+            token = Token.objects.get_or_create(user=user)[0]
+            return Response(
+                {
+                    "status_code": "1",
+                    "auth_token": "%s" % token
+                }
+            )
+        else:
+            return Response({"status_code": "0", "message": "Invalid password..."})
+    except CustomUser.DoesNotExist:
+        return Response({"status_code": "0", "message": "User not found..."})
+    except Exception as e:
+        return Response({"status_code": "0", "message": "{}".format(e)})

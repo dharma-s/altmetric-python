@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from customers.models import Plan
 
 class CustomUser(AbstractUser):
     dob = models.DateField(null=True, blank=True)
@@ -7,6 +8,7 @@ class CustomUser(AbstractUser):
     adhar_number = models.CharField(max_length=12, unique=True)
     registration_date = models.DateField(auto_now_add=True)
     assigned_mobile_number = models.CharField(max_length=10)
+    plan = models.ForeignKey(Plan, on_delete=models.CASCADE, blank=True, null=True)
     # Specify a custom related name for user_permissions
     groups = models.ManyToManyField(
         'auth.Group',

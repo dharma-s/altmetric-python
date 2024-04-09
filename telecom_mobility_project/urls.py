@@ -29,7 +29,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api/plans/', PlanListCreateAPIView.as_view(), name='plan-list-create'),
-    path('api/plans/<int:pk>/', PlanRetrieveUpdateDestroyAPIView.as_view(), name='plan-detail'),
+    path('api/profile/', PlanRetrieveUpdateDestroyAPIView.as_view(), name='plan-detail'),
     # path('api/users/<int:pk>/update-plan/', CustomUserUpdatePlanAPIView.as_view(), name='user-update-plan'),
     path('api-token-auth/', login, name='api_token_auth'), 
     path('api/register/', register_user, name='register_user'),
