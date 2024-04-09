@@ -1,70 +1,36 @@
-Project Name
-Brief description of the project.
+# Altmertic Python-Django sample application
 
-Installation
-Clone the repository:
+## Setup
 
-bash
-Copy code
-git clone https://github.com/username/repository.git
-Navigate to the project directory:
+The first thing to do is to clone the repository:
 
-bash
-Copy code
-cd project-name
-Create a virtual environment (optional but recommended):
+```sh
+$ git clone https://github.com/dharma-s/altmetric-python.git
+$ cd altmetric-python
+```
 
-bash
-Copy code
-python -m venv venv
-Activate the virtual environment:
+Create a virtual environment to install dependencies in and activate it:
 
-Windows:
+```sh
+$ virtualenv --no-site-packages env
+$ source env/bin/activate
+```
 
-bash
-Copy code
-venv\Scripts\activate
-Mac/Linux:
+Then install the dependencies:
 
-bash
-Copy code
-source venv/bin/activate
-Install dependencies:
+```sh
+(env)$ pip install -r requirements.txt
+```
+Note the `(env)` in front of the prompt. This indicates that this terminal
+session operates in a virtual environment set up by `virtualenv`.
 
-bash
-Copy code
-pip install -r requirements.txt
-Set up environment variables:
-
-Create a .env file in the root directory of the project and add your environment variables:
-
-plaintext
-Copy code
-DEBUG=True
-SECRET_KEY=your_secret_key
-DATABASE_URL=your_database_url
-Apply database migrations:
-
-bash
-Copy code
-python manage.py migrate
-Run the development server:
-
-bash
-Copy code
-python manage.py runserver
-The project should now be running locally on http://localhost:8000/.
-
-Usage
-Describe how to use the project or provide any additional instructions for users.
-
-Contributing
-If you'd like to contribute to this project, please follow these guidelines:
-
-Fork the repository.
-Create a new branch (git checkout -b feature/your-feature-name).
-Commit your changes (git commit -am 'Add new feature').
-Push to the branch (git push origin feature/your-feature-name).
-Create a new Pull Request.
-License
-This project is licensed under the MIT License.
+Once `pip` has finished downloading the dependencies:
+```sh
+(env)$ cd telecom_mobility_project
+(env)$ python manage.py runserver
+```
+And navigate to `http://127.0.0.1:8000/swagger/` for project api documentation.
+And navigate to `http://127.0.0.1:8000/admin/` for project admin access.
+Credentials are as
+username-dharmendra
+password - 1234
