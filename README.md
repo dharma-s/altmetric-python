@@ -31,6 +31,9 @@ Once `pip` has finished downloading the dependencies:
 ```
 And navigate to `http://127.0.0.1:8000/swagger/` for project api documentation.
 And navigate to `http://127.0.0.1:8000/admin/` for project admin access.
+
 Credentials are as
+```
 username-dharmendra
 password - 1234
+```
